@@ -142,7 +142,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
         checkIsStart();
         boolean success = this.queue.offer(event);
         if (!success) {
-            LOGGER.warn("Unable to plug in due to interruption, synchronize sending time, event : {}", event);
+            LOGGER.warn("Unable to plug in due to the queue is full, synchronize sending time, event : {}", event);
             receiveEvent(event);
             return true;
         }
